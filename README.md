@@ -1,2 +1,2 @@
 # Go-webcrawler
-recreating my webcrawler but this time usign Go programming language
+recreating my webcrawler but this time using Go programming language
