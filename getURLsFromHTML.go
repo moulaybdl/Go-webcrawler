@@ -12,9 +12,10 @@ func getURLsFromHTML(HTMLbody, rawURL string)([]string ,error){
 
 	r := strings.NewReader(HTMLbody)
 	root, err := html.Parse(r)
-	if r != nil {
+	if err != nil {
 		return nil, err
 	}
+
 
 	var f func(*html.Node)
 
@@ -25,7 +26,7 @@ func getURLsFromHTML(HTMLbody, rawURL string)([]string ,error){
 				if attr.Key == "href" {
 					urlObj, err := url.Parse(attr.Val)
 					if err != nil {
-						continue
+						break
 					}
 
 					if urlObj.Host == "" {
@@ -36,9 +37,10 @@ func getURLsFromHTML(HTMLbody, rawURL string)([]string ,error){
 				}
 			}
 
-			for c := el.FirstChild; c != nil; c = c.NextSibling {
-				f(c)
-			}
+		}
+
+		for c := el.FirstChild; c != nil; c = c.NextSibling {
+			f(c)
 		}
 	}
 	f(root)

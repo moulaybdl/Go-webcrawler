@@ -25,13 +25,13 @@ func TestURL(t *testing.T) {
 	</body>
 </html>
 `,
-			expected: nil,
+			expected: []string{"https://boot.dev/path/one", "https://other.com/path/one"},
 		},
 	}
 
 	for i, tc := range test_suits {
 		t.Run(tc.name, func(t *testing.T) {
-			actual, err := getURLsFromHTML(tc.input, "")
+			actual, err := getURLsFromHTML(tc.input, "https://boot.dev")
 			if err != nil {
 				t.Errorf("Error occured while parsing the html")
 				return

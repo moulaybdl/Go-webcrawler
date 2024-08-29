@@ -1,17 +1,24 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // https://blog.boot.dev/path
 
 func main(){
-	nromalizedURL, err := normalizeURL("#")
-	if err != nil {
-		fmt.Println("error from normalized function")
-		return
-	}
-	fmt.Println("the normalized url:", nromalizedURL)
+	body := `
+<html>
+	<body>
+		<a href="/path/one">
+			<span>Boot.dev</span>
+		</a>
+		<a href="https://other.com/path/one">
+			<span>Boot.dev</span>
+		</a>
+	</body>
+</html>
+`
+	r, _ :=getURLsFromHTML(body, "https://Boot.dev")
+
+	fmt.Println(r)
 }
 
