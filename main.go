@@ -5,19 +5,11 @@ import "fmt"
 // https://blog.boot.dev/path
 
 func main(){
-	body := `
-<html>
-	<body>
-		<a href="/path/one">
-			<span>Boot.dev</span>
-		</a>
-		<a href="https://other.com/path/one">
-			<span>Boot.dev</span>
-		</a>
-	</body>
-</html>
-`
-	r, _ :=getURLsFromHTML(body, "https://Boot.dev")
+	r, err := normalizeURL("https://bLog.BoOt.dEv/paTh")
+	if err != nil {
+		fmt.Println("Error ya 7mar", err)
+		return
+	}
 
 	fmt.Println(r)
 }

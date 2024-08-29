@@ -30,7 +30,11 @@ func TestNomrlizeURL(t *testing.T) {
 				inputURL: "http://blog.boot.dev/path/",
 				expected: "blog.boot.dev/path",
 			},
-			
+			{	
+				name: "case sensitivity test",
+				inputURL: "https://bLog.BoOt.dEv/paTh",
+				expected: "blog.boot.dev/path",
+			},
 	}
 
 		for i, tc := range tests {

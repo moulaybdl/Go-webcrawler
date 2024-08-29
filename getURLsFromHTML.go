@@ -22,6 +22,7 @@ func getURLsFromHTML(HTMLbody, rawURL string)([]string ,error){
 	f = func(el *html.Node){
 		if el.Type == html.ElementNode && el.Data == "a" {
 			attribute := el.Attr
+			
 			for _, attr := range attribute {
 				if attr.Key == "href" {
 					urlObj, err := url.Parse(attr.Val)

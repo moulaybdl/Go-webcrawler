@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"net/url"
+	"strings"
 )
 
 func normalizeURL(rawURL string) (string, error) {
@@ -28,5 +29,5 @@ func normalizeURL(rawURL string) (string, error) {
 
 	normalizedURL := fmt.Sprintf("%s%s", urlObj.Host, pathPart)
 
-	return normalizedURL, nil
+	return strings.ToLower(normalizedURL), nil
 }
