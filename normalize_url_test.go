@@ -11,10 +11,26 @@ func TestNomrlizeURL(t *testing.T) {
 		expected string
 	} {
 			{	
-				name: "scheme test",
-				inputURL: "",
-				expected: "haha",
+				name: "base test",
+				inputURL: "https://blog.boot.dev/path",
+				expected: "blog.boot.dev/path",
 			},
+			{	
+				name: "no schema slash test",
+				inputURL: "https://blog.boot.dev/path/",
+				expected: "blog.boot.dev/path",
+			},
+			{	
+				name: "schema test",
+				inputURL: "http://blog.boot.dev/path",
+				expected: "blog.boot.dev/path",
+			},
+			{	
+				name: "schema slash base test",
+				inputURL: "http://blog.boot.dev/path/",
+				expected: "blog.boot.dev/path",
+			},
+			
 	}
 
 		for i, tc := range tests {

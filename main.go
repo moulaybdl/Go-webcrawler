@@ -2,19 +2,16 @@ package main
 
 import (
 	"fmt"
-	"net/url"
 )
 
 // https://blog.boot.dev/path
 
 func main(){
-	urlObj, err := url.Parse("https://")
+	nromalizedURL, err := normalizeURL("#")
 	if err != nil {
-		fmt.Println("Smth went wrong with the parsing: ", err)
+		fmt.Println("error from normalized function")
 		return
 	}
-
-	fmt.Printf("the return is: %v",urlObj.Scheme )
-
+	fmt.Println("the normalized url:", nromalizedURL)
 }
 
