@@ -10,6 +10,9 @@ import (
 func getURLsFromHTML(HTMLbody, rawURL string)([]string ,error){
 	var anchors []string
 
+	//! Reader in Go, is a type that implements the method Read
+	//! This method is able to read a chunk of data, from a stream, into a buffer
+
 	r := strings.NewReader(HTMLbody)
 	root, err := html.Parse(r)
 	if err != nil {
