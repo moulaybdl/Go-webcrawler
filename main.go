@@ -20,9 +20,5 @@ func main(){
 	for url, num := range pages {
 		fmt.Println(url, "occured: ", num)
 	}
-
-
-
-
 }
 
